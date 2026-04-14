@@ -10,16 +10,21 @@ export const eventType = defineType({
     {name: 'details', title: 'Details'},
     {name: 'editorial', title: 'Editorial'},
   ],
+  fieldsets: [
+    {name: 'details', title: 'Event Details', options:{columns: 2}},
+  ],
   fields: [
     defineField({
       name: 'name',
       type: 'string',
       group: 'details',
+      fieldset: 'details',
     }),
     defineField({
       name: 'slug',
       type: 'slug',
       group: 'details',
+      fieldset: 'details',
       options: {
         source: 'name',
       },
