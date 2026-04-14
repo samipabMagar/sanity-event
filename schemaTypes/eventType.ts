@@ -1,12 +1,14 @@
 import {defineField, defineType} from 'sanity'
+import {CalendarIcon} from '@sanity/icons'
 
 export const eventType = defineType({
   name: 'event',
   title: 'Event',
   type: 'document',
+  icon: CalendarIcon,
   groups: [
-      {name: 'details', title: 'Details'},
-      {name: 'editorial', title: 'Editorial'},
+    {name: 'details', title: 'Details'},
+    {name: 'editorial', title: 'Editorial'},
   ],
   fields: [
     defineField({
@@ -84,4 +86,17 @@ export const eventType = defineType({
       type: 'url',
     }),
   ],
+  preview: {
+    select:{
+      title: 'name',
+      date: 'date',
+      media: 'image',
+    },
+    prepare({title, date} ) {
+      return {
+        title, 
+        subtitle: new Date(date).toDateString(),
+      }
+    }
+  },
 })
