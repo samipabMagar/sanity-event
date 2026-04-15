@@ -1,4 +1,4 @@
-import type {StructureResolver} from 'sanity/structure'
+import type {StructureResolver} from 'sanity/structure'  // controls left sidebar structure
 
 export const structure: StructureResolver = (S) =>
   S.list()
